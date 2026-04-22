@@ -35,22 +35,14 @@
      ##image of boroughs to show brooklyn focus
      
 
-#Q2:
+#Q2: 
+# double bar chart with x= Borough hue=Company showing company management for each borough 
+# some type of distribution plot/statistical analysis showing significance of distribution across boroughs
 
 #Q3:
 
 #step 7: write the code to make charts and graphs
 
-
-
-#Conclusion/Future Research
-# #Why does this data matter?
-### indicates trends in quality and location of modern/technologically advanced city resources
-### can help explain geographical access barriers to publicly available recreation sites
-### can be used to predict vistor traffic based on quality
-### reflects patterns of city investment in public health especially across different regions
-### shows who has constructed and maintains the fields, having higher stake in what happens to them
-### shows if turf fields are an effective and easily accessible resource for supporting public health
 
 
 
