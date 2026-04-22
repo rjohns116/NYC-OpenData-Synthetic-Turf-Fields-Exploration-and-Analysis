@@ -31,6 +31,14 @@
 
 #step 6: Decide what visualizations to generate
 
+#Q1: ##bar chart - turf fields across boroughs showing brooklyn with the tallest bar
+     ##image of boroughs to show brooklyn focus
+     
+
+#Q2:
+
+#Q3:
+
 #step 7: write the code to make charts and graphs
 
 
