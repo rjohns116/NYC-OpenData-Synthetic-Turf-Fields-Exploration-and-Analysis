@@ -100,15 +100,16 @@ df_quality = df[["Turf_Type", "Maintained_By", "Retired", "Borough", "Status" ]]
 
 owners_and_location = df_quality.groupby(["Maintained_By", "Borough"]).size() #DPR owns the most and they are the most evenly distributed across all five boroughs
 
-#How many fields in the city are are high quality 'infill' type fields?
-percent_infill = (df[df_quality["Turf_Type"] == "Infill"].shape[0] / df.shape[0] * 100)
-percent_infill = round(percent_infill, 1)
-
 #Are they active and not retired?
 dpr_fields = df[df_quality["Maintained_By"] == "DPR"]
-inactive = dpr_fields["Retired"].sum() + (dpr_fields["Status"] != "Active").sum()
-percent_inactive = inactive / dpr_fields.shape[0] * 100
-percent_inactive = round(percent_inactive,1) # 28% of DPR owned fields are archived, removed or inactive, but none are retired
+dpr_inactive = dpr_fields["Retired"].sum() + (dpr_fields["Status"] != "Active").sum()
+percent_inactive = round(dpr_inactive / dpr_fields.shape[0] * 100, 1) # 28% of DPR owned fields are archived, removed or inactive, but none are retired
+
+#What about non-DPR fields?
+others = df[df["Maintained_By", "Status"] != "DPR"].dropna()
+
+
+
 
 #Summary: DPR owns most of the fields in an even distribution across all boroughs - none are retired and 72% indicate "active" status
 
@@ -140,16 +141,28 @@ percent_play_fields = round(total_play_fields / df.shape[0] * 100, 1)
 
 sns.countplot(data = df,
               x = "Borough",
+              hue = "Borough",
+              legend=False,
               palette = "deep")
 plt.title("Prevalence of turf fields across boroughs")
-plt.savefig("/workspaces/Project-2/figures/fields_across_boroughs.png")
+plt.savefig("/workspaces/Project-2/figures/fig_2_fields_across_boroughs.png")
 
    ##map of NYC boroughs to emphasize Brooklyn
 url = "https://ontheworldmap.com/usa/city/new-york-city/map-of-new-york-city-max.jpg"
 response = requests.get(url)
 img = Image.open(BytesIO(response.content))
-img.save("/workspaces/Project-2/figures/borough_map.jpg")
+img.save("/workspaces/Project-2/figures/fig_1_borough_map.jpg")
 
+
+#Q2:
+
+
+#Step 4: Summary stats
+percent_infill = round(df[df_quality["Turf_Type"] == "Infill"].shape[0] / df.shape[0] * 100, 1)
+percent_active = round(df[df["Status"] == "Active"].shape[0] / df.shape[0] * 100, 1)
+percent_retired = round(df[df["Retired"]].shape[0] / df.shape[0] * 100, 1)
+percent_new = round(df[df["Commission_Date"] >= "2021-01-01"].shape[0] / df.shape[0] *100, 1)
+percent_play_fields = round((additional_fields + jop_fields.shape[0]) / df.shape[0] * 100, 1)
 
 
 
