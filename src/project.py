@@ -1,9 +1,15 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import requests
+from PIL import Image
+from io import BytesIO
 import seaborn as sns
 
-df = pd.read_csv("Synthetic_Turf_Fields_20260417.csv")
+
+
+
+df = pd.read_csv("/workspaces/Project-2/data/Synthetic_Turf_Fields_20260417.csv")
 
 #Step 1: Clean the data
 
@@ -129,6 +135,22 @@ percent_play_fields = round(total_play_fields / df.shape[0] * 100, 1)
 #Summary: 21.7% of fields are located within a JOP. Out of the fields that aren't, an additional 35 are located in a play area. Both are evenly distributed across all 5 boroughs. 
 
 #Step 3: Produce visuals to support findings
+
+#Q1: ##bar chart - distribution of all synthetic turf fields across the city
+
+sns.countplot(data = df,
+              x = "Borough",
+              palette = "deep")
+plt.title("Prevalence of turf fields across boroughs")
+plt.savefig("/workspaces/Project-2/figures/fields_across_boroughs.png")
+
+   ##map of NYC boroughs to emphasize Brooklyn
+url = "https://ontheworldmap.com/usa/city/new-york-city/map-of-new-york-city-max.jpg"
+response = requests.get(url)
+img = Image.open(BytesIO(response.content))
+img.save("/workspaces/Project-2/figures/borough_map.jpg")
+
+
 
 
 
