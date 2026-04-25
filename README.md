@@ -1,5 +1,5 @@
 # NYC Open Data Synthetic Turf Fields: Exploration and Analysis
-This project focuses on cleaning, standardizing and analyzing the [Synthetic Turf Fields](https://data.cityofnewyork.us/Recreation/Synthetic-Turf-Fields/weh8-3ujf/about_data) dataset from [NYC Open Data.](https://opendata.cityofnewyork.us/) After performing a full inspection and data quality assessment, the cleaned datset will be used to investigate the **quality**, **accessibility** and **effectiveness** of synthetic turf fields in NYC.
+This project focuses on cleaning, standardizing and analyzing the [Synthetic Turf Fields](https://data.cityofnewyork.us/Recreation/Synthetic-Turf-Fields/weh8-3ujf/about_data) dataset from [NYC Open Data.](https://opendata.cityofnewyork.us/) After performing a full inspection and data quality assessment, the cleaned datset was used to investigate the **quality**, **accessibility** and **effectiveness** of synthetic turf fields in NYC.
 
 
 ## Project structure:
@@ -16,7 +16,7 @@ This project focuses on cleaning, standardizing and analyzing the [Synthetic Tur
 ## Objectives:
 - Improve the **consistency, structure** and **readability** of a real-world municipal dataset
   
-- Transform raw turf field records into **analysis-ready** features to answer questions about access to high-quality public health resources
+- Transform raw turf field records into **analysis-ready** features to answer questions about trends in access to high-quality public health resources
   
 - Use cleaned dataset to visualize the **quality** and **availability** of synthetic turf fields across the city
 
@@ -32,25 +32,25 @@ This project focuses on cleaning, standardizing and analyzing the [Synthetic Tur
   1. Load in and inspect the raw dataset
   2. Clean the dataset changing column names, data types, removing unneccessary columns and addressing empty values
   3. Generate analytical questions that can be answered based on the data
-  4. Apply pandas manipulation techniques to sort and organize the data in response to each research question
-  5. Use the processed data to create visualizations that support findings
+  4. Apply pandas data manipulation techniques to structure and organize the data in response to each research question
+  5. Use the processed data to create visualizations that support study findings
    
 ## Key findings:
 
 ### **⭐ Overall, most synthetic turf fields in NYC are *well-maintained, active* and *available* for use.**
 
 
-- **73.0%** of all fields in the city were constructed as infill type fields, with high-quality materials in two layers.
+- **73.0%** of all fields in the city were constructed as "infill" type fields with high-quality materials in two layers.
 
-- **74.2%** of fields in the city are active and ready to use.
+- **74.2%** of fields in the city are active and ready to use
 
 - **92%** of all fields in the city are actively maintained by a company
 
 - This dataset contained **0** retired fields. 
 
-- **23.9%** of fields are new (less than 5 years old, as defined as younger than *2021-01-01*).
+- **23.9%** of fields are new (less than 5 years old, as defined as younger than *2021-01-01*)
 
-- **32.7%** of all fields in the city are located within or near a playground system.
+- **32.7%** of all fields in the city are located within or near a playground system
 
 ## Acknowledgements
 
@@ -60,7 +60,7 @@ This project focuses on cleaning, standardizing and analyzing the [Synthetic Tur
 ![Project notebook](https://github.com/rjohns116/NYC-OpenData-Synthetic-Turf-Fields-Exploration-and-Analysis/blob/main/notebooks/turf.ipynb)
 
 #### **Tools used:**
-- **Python** - csv files, pandas, dataframes
+- **Python** - csv file I/O, pandas, dataframes
 - **Seaborn** - bar charts 
 - **Jupyter notebook** - images, tables, code and project structure
 

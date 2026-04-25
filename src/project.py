@@ -28,7 +28,6 @@ df = df.rename(columns={"SYSTEM":"Field_ID",
                    "FeatureStatus":"Status"
                    })
 
-
 #Drop the parent_ID and "SYNTURF" from the Field_ID
 df["Field_ID"] = df["Field_ID"].str.extract(r"(0\d+$)")
 
