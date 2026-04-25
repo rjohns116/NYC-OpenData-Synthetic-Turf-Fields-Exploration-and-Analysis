@@ -6,9 +6,6 @@ from PIL import Image
 from io import BytesIO
 import seaborn as sns
 
-
-
-
 df = pd.read_csv("/workspaces/Project-2/data/Synthetic_Turf_Fields_20260417.csv")
 
 #Step 1: Clean the data
@@ -106,9 +103,12 @@ dpr_inactive = dpr_fields["Retired"].sum() + (dpr_fields["Status"] != "Active").
 percent_inactive = round(dpr_inactive / dpr_fields.shape[0] * 100, 1) # 28% of DPR owned fields are archived, removed or inactive, but none are retired
 
 #What about non-DPR fields?
-others = df[df["Maintained_By", "Status"] != "DPR"].dropna()
+others = df[df["Maintained_By"] != "DPR"].dropna()
+status = others[["Maintained_By", "Status"]]
 
-
+#How many total fields in the city are actively maintained?
+percent_maintained = round(df["Maintained_By"].notna().sum() / df.shape[0] * 100, 1)
+dpr_maintained = round((df["Maintained_By"] == "DPR").sum() / df.shape[0] * 100, 1)
 
 
 #Summary: DPR owns most of the fields in an even distribution across all boroughs - none are retired and 72% indicate "active" status
@@ -127,7 +127,7 @@ additional_fields = play_area.shape[0] #There are an additional 35 fields in the
 jop_fields = df[df["JOP"]]
 jop_distribution = jop_fields.groupby("Borough").size()
 play_area_fields = play_area
-play_area_distribuition = play_area.groupby("Borough").size() #Both JOP fields and additional play area fields are fairly evenly distributed across all 5 boroughs
+play_area_distribution = play_area.groupby("Borough").size() #Both JOP fields and additional play area fields are fairly evenly distributed across all 5 boroughs
 
 #What is the total percentage of fields located within or near a playground?
 total_play_fields = additional_fields + jop_fields.shape[0]
@@ -139,6 +139,7 @@ percent_play_fields = round(total_play_fields / df.shape[0] * 100, 1)
 
 #Q1: ##bar chart - distribution of all synthetic turf fields across the city
 
+plt.figure(figsize=(10,6))
 sns.countplot(data = df,
               x = "Borough",
               hue = "Borough",
@@ -154,7 +155,35 @@ img = Image.open(BytesIO(response.content))
 img.save("/workspaces/Project-2/figures/fig_1_borough_map.jpg")
 
 
-#Q2:
+#Q2: double bar chart with showing company management for each borough 
+maintenance_distribution = df[["Maintained_By", "Borough"]]
+
+plt.figure(figsize=(8,4))
+sns.countplot(maintenance_distribution,
+              x = "Borough",
+              hue = "Maintained_By")
+plt.title("Maintenance of turf fields across boroughs")
+plt.savefig("/workspaces/Project-2/figures/fig_4_maintenance_across_boroughs.png")
+
+    #table showing percent managed fields for each borough (Use percentages to create a markdown table in jupyter with boroughs ordered according to sns order)
+maintained = df[df["Maintained_By"].notna()].groupby("Borough").size().reset_index(name="Count Maintained")
+total_per_borough = df.groupby("Borough").size().reset_index(name="Field Count")
+
+percent_maintained = round(maintained["Count Maintained"] / total_per_borough["Field Count"] * 100, 1)
+
+
+#Q3: #bar chart showing JOP and other play area fields distribution across boroughs
+all_play_fields = pd.concat([jop_fields, play_area_fields], axis=0)
+
+plt.figure(figsize=(6,3))
+sns.countplot(data= all_play_fields,
+              x = "Borough",
+              hue= "Borough",
+              order = ["Queens", "Brooklyn", "Bronx", "Manhattan", "Staten Island"],
+              palette = "deep")
+plt.title("Total JOP and play area-associated fields per borough")
+plt.tight_layout()
+plt.savefig("/workspaces/Project-2/figures/fig_5_all_play_fields_across_boroughs")
 
 
 #Step 4: Summary stats
@@ -165,6 +194,7 @@ percent_new = round(df[df["Commission_Date"] >= "2021-01-01"].shape[0] / df.shap
 percent_play_fields = round((additional_fields + jop_fields.shape[0]) / df.shape[0] * 100, 1)
 
 
+print(df["Maintained_By"].notna().sum() / df.shape[0] * 100)
 
 
 
