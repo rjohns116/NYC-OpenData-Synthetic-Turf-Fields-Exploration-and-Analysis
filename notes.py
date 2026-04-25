@@ -34,14 +34,15 @@
 #Q1: ##bar chart - turf fields across boroughs showing brooklyn with the tallest bar
      ##image of boroughs to show brooklyn focus
      
+#Q2: ## double bar chart with x= Borough hue=Company showing company maintenance for each borough 
+     ## table showing percentage of fields that are maintained by a company
 
-#Q2: 
-# double bar chart with x= Borough hue=Company showing company management for each borough 
-# some type of distribution plot/statistical analysis showing significance of distribution across boroughs
-
-#Q3:
+#Q3: ## bar chart showing distribution of JOP fields across the boroughs
+     ##
 
 #step 7: write the code to make charts and graphs
+
+#step 8: summarize
 
 
 
