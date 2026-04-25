@@ -50,7 +50,6 @@ df["Cross_Streets"] = df["Cross_Streets"].replace(r"\s&\s", " and ", regex=True)
 #Combine "crumb rubber" and "rubber crumb" infill material types
 df["Infill_Material"] = df["Infill_Material"].replace("Crumb Rubber", "Rubber Crumb")
 
-
 #Expand borough names
 df["Borough"] = df["Borough"].replace({"B":"Brooklyn",
                                        "M": "Manhattan",
@@ -58,7 +57,6 @@ df["Borough"] = df["Borough"].replace({"B":"Brooklyn",
                                        "X": "Bronx",
                                        "R": "Staten Island"})
 
-df.to_csv("cleaned_synthetic_turf_fields_data.csv", index=False)
 
 # Step 2: Start to answer analytical questions with the data
 
@@ -193,8 +191,6 @@ percent_retired = round(df[df["Retired"]].shape[0] / df.shape[0] * 100, 1)
 percent_new = round(df[df["Commission_Date"] >= "2021-01-01"].shape[0] / df.shape[0] *100, 1)
 percent_play_fields = round((additional_fields + jop_fields.shape[0]) / df.shape[0] * 100, 1)
 
-
-print(df["Maintained_By"].notna().sum() / df.shape[0] * 100)
 
 
 
