@@ -56,6 +56,8 @@ This project focuses on cleaning, standardizing and analyzing the [Synthetic Tur
 
 #### **Data source:** [Synthetic Turf Fields](https://data.cityofnewyork.us/Recreation/Synthetic-Turf-Fields/weh8-3ujf/about_data) dataset from [NYC Open Data.](https://opendata.cityofnewyork.us/)
 
+#### The project Jupyter notebook can be found here:
+![Project notebook](https://github.com/rjohns116/NYC-OpenData-Synthetic-Turf-Fields-Exploration-and-Analysis/blob/main/notebooks/turf.ipynb)
 
 #### **Tools used:**
 - **Python** - csv files, pandas, dataframes
