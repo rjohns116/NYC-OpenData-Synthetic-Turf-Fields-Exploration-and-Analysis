@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-# NYC OpenData Synthetic Turf Fields: Exploration and Analysis
-This will be a description of the project.
-=======
-# **NYC Synthetic Turf Fields - Cleaning, Transformation and Analysis**
-
+# NYC Open Data Synthetic Turf Fields: Exploration and Analysis
 This project focuses on cleaning, standardizing and analyzing the [Synthetic Turf Fields](https://data.cityofnewyork.us/Recreation/Synthetic-Turf-Fields/weh8-3ujf/about_data) dataset from [NYC Open Data.](https://opendata.cityofnewyork.us/) After performing a full inspection and data quality assessment, the cleaned datset will be used to investigate the **quality**, **accessibility** and **effectiveness** of synthetic turf fields in NYC.
 
 
@@ -81,10 +76,3 @@ This project focuses on cleaning, standardizing and analyzing the [Synthetic Tur
 
 [Figure 5: Distribution of JOP and play area-associated fields across boroughs](/workspaces/Project-2/figures/fig_5_all_play_fields_across_boroughs.png)
 
-
-
-
-
-
-
->>>>>>> 2f4a0af (Second to last version)
