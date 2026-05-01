@@ -8,7 +8,6 @@ This project focuses on cleaning, standardizing and analyzing the [Synthetic Tur
 ├── figures/
 ├── notebooks/
 ├── src/
-├── venv/
 ├── README.md
 └── requirements.txt
 ```
@@ -29,11 +28,11 @@ This project focuses on cleaning, standardizing and analyzing the [Synthetic Tur
  ### 🏈 **How many fields are located within a *Jointly Operated Playground* (JOP)? How many other fields are apart of a playground system?**
 
 ## Methods:
-  1. Load in and inspect the raw dataset
-  2. Clean the dataset changing column names, data types, removing unneccessary columns and addressing empty values
-  3. Generate analytical questions that can be answered based on the data
-  4. Apply pandas data manipulation techniques to structure and organize the data in response to each research question
-  5. Use the processed data to create visualizations that support study findings
+  1. Loaded in and inspected the raw dataset
+  2. Cleaned the dataset changing column names, data types, removing unneccessary columns and addressing empty values
+  3. Generated analytical questions that can be answered based on the data
+  4. Applied pandas data manipulation techniques to structure and organize the data in response to each research question
+  5. Used the processed data to create visualizations that support study findings
    
 ## Key findings:
 
@@ -57,10 +56,10 @@ This project focuses on cleaning, standardizing and analyzing the [Synthetic Tur
 #### **Data source:** [Synthetic Turf Fields](https://data.cityofnewyork.us/Recreation/Synthetic-Turf-Fields/weh8-3ujf/about_data) dataset from [NYC Open Data.](https://opendata.cityofnewyork.us/)
 
 #### The project Jupyter notebook can be found here:
-![Project notebook](https://github.com/rjohns116/NYC-OpenData-Synthetic-Turf-Fields-Exploration-and-Analysis/blob/main/notebooks/turf.ipynb)
+[Project notebook](https://github.com/rjohns116/NYC-OpenData-Synthetic-Turf-Fields-Exploration-and-Analysis/blob/main/notebooks/turf.ipynb)
 
 #### **Tools used:**
-- **Python** - csv file I/O, pandas, dataframes
+- **Python** - .csv file I/O, pandas, dataframes
 - **Seaborn** - bar charts 
 - **Jupyter notebook** - images, tables, code and project structure
 
